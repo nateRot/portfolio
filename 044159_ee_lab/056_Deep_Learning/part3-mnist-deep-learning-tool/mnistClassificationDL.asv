@@ -1,0 +1,43 @@
+%% MNIST CLASSIFICATION USING DEEP LEARNING
+% In this part, we will train and test a neural network for
+% a classification task.
+
+% Last modified by Rotem Mulayoff 7/11/19
+
+clearvars; close all; clc
+
+%% Prepare data
+validation_percent = 0.1;
+[imdsTrain,imdsValidation] = mnistDataPrep(validation_percent);
+
+%% Define neural network model architecture
+
+% TODO: 
+ layers = [
+           imageInputLayer([28 28])
+           fullyConnectedLayer(700)
+           reluLayer
+           layer2(10)
+           softmaxLayer
+           outputLayer]
+
+
+%% Set model options
+options = trainingOptions('sgdm', ...
+    'InitialLearnRate', 0.0001, ...    
+    'MaxEpochs',10, ...
+    'ValidationData',imdsValidation, ...
+    'ValidationFrequency',50, ...
+    'Verbose',true, ...
+    'VerboseFrequency', 25, ...
+    'Plots','training-progress');
+
+%% Train network
+net = trainNetwork(imdsTrain,layers,options);
+
+%% Classify validation set
+
+YPred = classify(net,imdsValidation);
+YValidation = imdsValidation.Labels;
+accuracy = mean(YPred == YValidation);
+fprintf('Validation error: %2.2f%%\n', 100*(1-accuracy));

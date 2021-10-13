@@ -1,7 +1,9 @@
 # Nate's Portfolio  
 
 This repository holds a select collection of personal projects and school assigmnets I've worked on.  
-The school courses were taken within the framework of my Bachelor's Degree at the Technion - Israel Institute of Technology:   
+The school courses were taken within the framework of my Bachelor's Degree at the Technion - Israel Institute of Technology:
+
+[**NFT Contract Measurement Tool**](https://github.com/nateRot/NFT-Contract-Measurement-Tool) - I developed during my summer internship at Cornell-Tech
 
 **236781 Deep Learning on Computational Accelerators** - course dedicated to understanding the theory and algorithms behind Deep Learning. Topics covered:  
 assignment 1: data preprocessing, KNN, linear classification, linear regression  
